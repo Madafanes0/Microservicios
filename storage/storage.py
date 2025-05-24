@@ -14,7 +14,7 @@ class ResultInput(BaseModel):
 @app.post("/guardar")
 def guardar_resultado(data: ResultInput):
     conn = mysql.connector.connect(
-        host="mysql",
+        host="mysql-service",
         user="user",
         password="password",
         database="microservicios_db"
@@ -38,7 +38,7 @@ def guardar_resultado(data: ResultInput):
 @app.get("/resultados")
 def obtener_resultados():
     conn = mysql.connector.connect(
-        host="mysql",
+        host="mysql-service",
         user="user",
         password="password",
         database="microservicios_db"

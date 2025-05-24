@@ -1,0 +1,38 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: microservices-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /suma
+        pathType: Prefix
+        backend:
+          service:
+            name: suma-service
+            port:
+              number: 80
+      - path: /resta
+        pathType: Prefix
+        backend:
+          service:
+            name: resta-service
+            port:
+              number: 80
+      - path: /ecuacion
+        pathType: Prefix
+        backend:
+          service:
+            name: ecuacion-service
+            port:
+              number: 80
+      - path: /storage
+        pathType: Prefix
+        backend:
+          service:
+            name: storage-service
+            port:
+              number: 80 
